@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.jesen.demo1.module.viewmodel.MainViewModel" />
+            type="com.jesen.demo1.module.main.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

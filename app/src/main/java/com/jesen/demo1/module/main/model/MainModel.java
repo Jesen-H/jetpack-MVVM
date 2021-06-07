@@ -1,4 +1,4 @@
-package com.jesen.demo1.module.model;
+package com.jesen.demo1.module.main.model;
 
 /**
  * 接口处理

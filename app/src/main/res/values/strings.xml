@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">demo1</string>
     <string name="add">Add</string>
+    <string name="close">关闭页面</string>
 </resources>
