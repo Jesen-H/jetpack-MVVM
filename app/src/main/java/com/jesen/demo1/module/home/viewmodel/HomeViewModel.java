@@ -1,11 +1,9 @@
 package com.jesen.demo1.module.home.viewmodel;
 
-import android.app.Activity;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel  {
-    private Activity mActivity;
+public class HomeViewModel extends ViewModel {
 
-    public HomeViewModel(Activity activity) {
-        mActivity = activity;
-    }
+    private MutableLiveData<Integer> count;
 }

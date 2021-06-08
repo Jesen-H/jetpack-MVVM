@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.jesen.demo1.module.main.viewmodel.MainViewModel" />
+
+        <variable
+            name="click"
+            type="com.jesen.demo1.module.main.view.MainActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,7 +33,7 @@
             android:id="@+id/btn_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.setCount()}"
+            android:onClick="@{() -> click.addClick()}"
             android:text="@string/add"
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="20dp"

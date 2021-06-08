@@ -3,7 +3,6 @@ package com.jesen.demo1.module.main.view;
 import android.widget.Toast;
 
 import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.Lifecycle;
 
 import com.jesen.architecture.callback.LifecycleCallBack;
 import com.jesen.architecture.ui.BaseActivity;
@@ -13,8 +12,7 @@ import com.jesen.demo1.module.main.viewmodel.MainViewModel;
 
 public class MainActivity extends BaseActivity {
     private final String TAG = MainActivity.this.getClass().getSimpleName();
-    ActivityMainBinding binding;
-    MainViewModel viewModel;
+    private MainViewModel viewModel;
 
     @Override
     protected int setLayout() {
@@ -23,18 +21,22 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected LifecycleCallBack setLifecycleCallBack() {
-        return new LifecycleCallBack() {
-            @Override
-            public void update(String event) {
-                Toast.makeText(MainActivity.this, TAG  + " " + event, Toast.LENGTH_SHORT).show();
-            }
-        };
+        return event -> Toast.makeText(MainActivity.this, TAG + " " + event, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void initView(ViewDataBinding viewDataBinding) {
-        binding = (ActivityMainBinding) viewDataBinding;
-        viewModel = new MainViewModel(this);
+        ActivityMainBinding binding = (ActivityMainBinding) viewDataBinding;
+        viewModel = getActivityScopeViewModel(MainViewModel.class);
         binding.setViewModel(viewModel);
+        binding.setClick(new ClickProxy());
+        viewModel.model.getValLiveData().observe(this, s -> viewModel.count.set(s));
+    }
+
+    public class ClickProxy {
+
+        public void addClick() {
+            viewModel.model.requestCount();
+        }
     }
 }

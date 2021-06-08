@@ -8,7 +8,6 @@ import com.jesen.architecture.callback.LifecycleCallBack;
 import com.jesen.architecture.ui.BaseActivity;
 import com.jesen.demo1.R;
 import com.jesen.demo1.databinding.ActivityHomeBinding;
-import com.jesen.demo1.module.home.viewmodel.FinishClick;
 import com.jesen.demo1.module.home.viewmodel.HomeViewModel;
 
 public class HomeActivity extends BaseActivity {
@@ -33,9 +32,5 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void initView(ViewDataBinding viewDataBinding) {
         binding = (ActivityHomeBinding) viewDataBinding;
-        HomeViewModel viewModel = new HomeViewModel(this);
-        binding.setViewModel(viewModel);
-        FinishClick finishClick = new FinishClick(this);
-        binding.setClick(finishClick);
     }
 }

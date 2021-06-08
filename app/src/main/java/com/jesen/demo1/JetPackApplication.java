@@ -1,8 +1,8 @@
 package com.jesen.demo1;
 
-import android.app.Application;
+import com.jesen.architecture.BaseApplication;
 
-public class JetPackApplication extends Application {
+public class JetPackApplication extends BaseApplication {
 
     @Override
     public void onCreate() {
