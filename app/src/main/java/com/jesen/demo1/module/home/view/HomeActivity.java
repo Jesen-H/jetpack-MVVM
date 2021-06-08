@@ -8,7 +8,6 @@ import com.jesen.architecture.callback.LifecycleCallBack;
 import com.jesen.architecture.ui.BaseActivity;
 import com.jesen.demo1.R;
 import com.jesen.demo1.databinding.ActivityHomeBinding;
-import com.jesen.demo1.module.home.viewmodel.HomeViewModel;
 
 public class HomeActivity extends BaseActivity {
     private final String TAG = HomeActivity.this.getClass().getSimpleName();

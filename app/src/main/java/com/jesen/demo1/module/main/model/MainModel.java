@@ -14,7 +14,8 @@ public class MainModel {
         return valLiveData;
     }
 
-    public void requestCount() {
-        valLiveData.setValue("5");
+    public void requestCount(String count) {
+        int val = Integer.parseInt(count);
+        valLiveData.setValue(++val + "");
     }
 }

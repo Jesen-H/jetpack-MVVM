@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
     public class ClickProxy {
 
         public void addClick() {
-            viewModel.model.requestCount();
+            viewModel.model.requestCount(viewModel.count.get());
         }
     }
 }
