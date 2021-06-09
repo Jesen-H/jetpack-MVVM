@@ -3,14 +3,16 @@ package com.jesen.demo1.module.main.model;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.jesen.architecture.model.BaseModel;
+
 /**
  * 接口处理
  */
-public class MainModel {
+public class MainModel extends BaseModel {
 
     private final MutableLiveData<String> valLiveData = new MutableLiveData<>();
 
-    public LiveData<String> getValLiveData() {
+    public LiveData<String> value() {
         return valLiveData;
     }
 

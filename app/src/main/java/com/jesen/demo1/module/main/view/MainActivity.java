@@ -3,6 +3,7 @@ package com.jesen.demo1.module.main.view;
 import android.widget.Toast;
 
 import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.Observer;
 
 import com.jesen.architecture.callback.LifecycleCallBack;
 import com.jesen.architecture.ui.BaseActivity;
@@ -30,13 +31,28 @@ public class MainActivity extends BaseActivity {
         viewModel = getActivityScopeViewModel(MainViewModel.class);
         binding.setViewModel(viewModel);
         binding.setClick(new ClickProxy());
-        viewModel.model.getValLiveData().observe(this, s -> viewModel.count.set(s));
+        viewModel.model.value().observe(this, s -> viewModel.count.set(s));
+        viewModel.model.loading().observe(this, aBoolean -> {
+            if (aBoolean) {
+                Toast.makeText(MainActivity.this, "展示弹窗", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MainActivity.this, "关闭弹窗", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public class ClickProxy {
 
         public void addClick() {
             viewModel.model.requestCount(viewModel.count.get());
+        }
+
+        public void showLoadingClick() {
+            viewModel.model.showLoading();
+        }
+
+        public void hideLoadingClick() {
+            viewModel.model.hideLoading();
         }
     }
 }
